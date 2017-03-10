@@ -1,0 +1,95 @@
+-Sign up
+	input ID & passwd
+	data base initiallization
+
+- sign in 
+	input ID & key
+	check
+	if right:
+		input site & key
+		press get passwd
+		if customized:
+			get passwd
+			alert:
+				dangerous! please get a random passwd!
+				button :
+					get a random passwd
+					get another
+				save
+		else:
+			if exist:
+				get passwd
+				optional:
+					get another passwd
+					save
+			else:
+				generate passwd
+				optional:
+					get another passwd
+				save
+
+三个密级：
+	1. int(6)
+	2. int + letters
+	3. base64
+
+一个总数据库保存账号信息
++------------------------+
+|ID   |sault  |hash      |
++------------------------+
+
+hash == sha224(key + id + sault)
+
+
+
+每个用户一个数据库
++-------------------------+
+|site  |customized  |sault|
++-------------------------+
+
+passwd = f(sha224(key + site + sault))
+
+
+
+
+
+
++----------------------------------------+
+|Sign up|                        |Sign in|
+|-------+                        +-------+
+|                                        |
+|    site [                           ]  |
+|    key  [                           ]  |
+|                                        |
+|                                    +---|
+|                                    |doc|
++----------------------------------------+
+
+
++----------------------------------------+
+|Sign out|                       |xxxxxxx|
+|--------+                       +-------+
+|                                        |
+|    site [                           ]  |
+|    key  [                           ]  |
+|                                        |
+|                                    +---|
+|                                    |doc|
++----------------------------------------+
+
+
++---------------------------------------+
+|  passwd [                            ]|
+|                                       |
+|             []get another passwd      |
+|---------------------------------------+
+
++---------------------------------------+
+|  generate a passwd [                 ]|
+|                                       |
+|             []get another passwd      |
+|---------------------------------------+
+
+
+
+
