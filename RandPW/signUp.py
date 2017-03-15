@@ -12,9 +12,9 @@ class signUpWin(object):
 
 	def __init__(self, username, key):
 		super(signUpWin, self).__init__()
-		self.sault = str(os.urandom(16))
-		self.username = codecs.encode(sha256(username + self.sault), 'hex')
-		self.key = codecs.encode(sha256(key + self.sault), 'hex')
+		self.sault = str(os.urandom(16))[2:-1]
+		self.username = str(codecs.encode(sha256(username + self.sault), 'hex'))[2:-1]
+		self.key = str(codecs.encode(sha256(key + self.sault), 'hex'))[2:-1]
 		self.DBoperation()
 
 	def DBoperation(self):
@@ -35,6 +35,9 @@ class signUpWin(object):
 		db.close()
 		userInfo_Db.close()
 
+		users = sqlite3.connect('C:/RandPwData/users.db')
+		db = users.cursor()
+		db.execute('create table "' + self.username + '" (site text unique, sault text, userDefined integer)')
 
 
 
@@ -45,10 +48,10 @@ class signUpLinux(object):
 	sault = None
 
 	def __init__(self, username, key):
-		super(signUpLinux, self).__init__()
-		self.sault = str(os.urandom(16))
-		self.username = codecs.encode(sha256(username + self.sault), 'hex')
-		self.key = codecs.encode(sha256(key + self.sault), 'hex')
+		super(signUpWin, self).__init__()
+		self.sault = str(os.urandom(16))[2:-1]
+		self.username = str(codecs.encode(sha256(username + self.sault), 'hex'))[2:-1]
+		self.key = str(codecs.encode(sha256(key + self.sault), 'hex'))[2:-1]
 		self.DBoperation()
 
 	def DBoperation(self):
@@ -68,6 +71,10 @@ class signUpLinux(object):
 		userInfo_Db.commit()
 		db.close()
 		userInfo_Db.close()
+
+		users = sqlite3.connect('~/RandPwData/users.db')
+		db = users.cursor()
+		db.execute('create table "' + self.username + '" (site text unique, sault text, userDefined integer)')
 
 
 
