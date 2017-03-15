@@ -1,0 +1,7 @@
+dont save any thing without hash
+
+DB1--userinfo:
+	| username | password | sault |
+
+DBN--singleUser:
+	| site | sault | user-defined | 

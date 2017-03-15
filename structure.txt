@@ -1,5 +1,7 @@
+写成app
+
 -Sign up
-	input ID & passwd
+	input ID & key
 	data base initiallization
 
 - sign in 
@@ -8,7 +10,7 @@
 	if right:
 		input site & key
 		press get passwd
-		if customized:
+		if user-defined:
 			get passwd
 			alert:
 				dangerous! please get a random passwd!
@@ -44,12 +46,12 @@ hash == sha224(key + id + sault)
 
 每个用户一个数据库
 +-------------------------+
-|site  |customized  |sault|
+|site |user-defined |sault|
 +-------------------------+
 
 passwd = f(sha224(key + site + sault))
 
-
+       = aes_decrypt(sault)
 
 
 
@@ -92,4 +94,22 @@ passwd = f(sha224(key + site + sault))
 
 
 
+Information carrier--json
 
+write the main database operation  in RandPW:command.py
+
+Interface layer module 
+1. AES
+     `----encrypt
+     `----decrypt
+     `----key2key
+2. SHA256
+
+application layer module
+1. sign up 
+2. sign in 
+3. sign out
+4. PassWD
+        `----getPassWD
+        `----newPassWD
+        `----decrypt user-defined password
