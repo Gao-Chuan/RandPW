@@ -49,18 +49,18 @@ def sha256(inputs):
 
 # test code
 
-def aesTest():
-	username = 'user'
-	pw = 'pw'
-	sault = '123'
+# def aesTest():
+# 	username = 'user'
+# 	pw = 'pw'
+# 	sault = '123'
 
-	a = aes(username, pw, sault)
-	cipher = a.encrypt('123')
-	print(cipher)
-	print(a.decrypt(cipher))
+# 	a = aes(username, pw, sault)
+# 	cipher = a.encrypt('123')
+# 	print(cipher)
+# 	print(a.decrypt(cipher))
 
 
-if __name__ == '__main__':
-	pass
+# if __name__ == '__main__':
+# 	pass
 #	aesTest()
 #	print(s)
