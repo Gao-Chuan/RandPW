@@ -4,11 +4,14 @@ import os
 import codecs
 
 class signUpWin(object):
-	"""docstring for signUpWin"""
+	"""Sign up successfully, status == 1;
+User name repeat, status == 0;
+Other errors, status == -1;
+"""
 	username = None
 	key = None
 	sault = None
-	status = 0
+	status = -1
 
 	def __init__(self, username, key):
 		super(signUpWin, self).__init__()
@@ -47,11 +50,14 @@ class signUpWin(object):
 
 
 class signUpLinux(object):
-	"""docstring for signUpLinux"""
+	"""Sign up successfully, status == 1;
+User name repeat, status == 0;
+Other errors, status == -1;
+"""
 	username = None
 	key = None
 	sault = None
-	status = 0
+	status = -1
 
 	def __init__(self, username, key):
 		super(signUpLinux, self).__init__()
@@ -97,3 +103,4 @@ class signUpLinux(object):
 # db = userInfo_Db.cursor()
 # db.execute('select * from userInfo')
 # print(db.fetchall())
+#print(help(signUpLinux))
